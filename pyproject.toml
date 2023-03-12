@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dinochrome-console-package"
-version = "0.0.2"
+version = "0.0.3"
 description = "package of console utilities for my own needs"
 authors = ["Dmitry Drozdov <dinochrom1@gmail.com>"]
 readme = "README.md"
@@ -12,6 +12,7 @@ dsc = "dinochrome_console_package.main:app"
 [tool.poetry.dependencies]
 python = "^3.10"
 typer = {extras = ["all"], version = "^0.7.0"}
+pyperclip = "^1.8.2"
 
 
 [tool.poetry.group.dev.dependencies]

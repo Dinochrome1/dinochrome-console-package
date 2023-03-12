@@ -5,6 +5,7 @@ import typer
 from rich import print
 from rich.progress import track
 
+from dinochrome_console_package.utils.klavarog import get_klavarog
 from dinochrome_console_package.utils.video_duration import get_length, get_file_list
 
 app = typer.Typer()
@@ -40,6 +41,18 @@ def vd():
     file_length_list = [get_length(i) for i in track(get_file_list())]
     total_video_duration = sum(file_length_list)
     print(str(datetime.timedelta(seconds=int(total_video_duration))))
+
+
+@app.command()
+def kr(seed: int = typer.Argument(None)):
+    """Генерирует текст на тему python для тренировки в клавиатурном тренажере"""
+    get_klavarog(seed)
+    print("[bold green]OK![/bold green] [green]Текст скопирован в буфер обмена[/green] 🆗")
+
+
+@app.command()
+def t(x: str = typer.Argument('DEFAULT')):
+    print(f"Creating user: {x}")
 
 
 if __name__ == "__main__":
